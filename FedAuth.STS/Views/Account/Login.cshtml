@@ -1,0 +1,43 @@
+﻿@model FedAuth.STS.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm(new { returnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Log in Form (user/password)</legend>
+                <ul>
+                    <li>
+                        @Html.LabelFor(m => m.UserName)
+                        @Html.TextBoxFor(m => m.UserName)
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </li>
+                    <li>
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </li>
+                    <li>
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                    </li>
+                </ul>
+                <input type="submit" value="Log in" />
+            </fieldset>
+        }
+    </div>
+</body>
+</html>

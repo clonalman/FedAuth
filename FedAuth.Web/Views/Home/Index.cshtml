@@ -1,0 +1,19 @@
+﻿@model dynamic
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>title</title>
+    </head>
+    <body>
+        <div>
+            <h1>RP: Welcome @User.Identity.Name</h1>  
+        </div>
+        <a href="@Url.Action("Logout")">退出</a>
+    </body>
+</html>
+
